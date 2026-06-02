@@ -7,7 +7,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-72 min-h-screen bg-[#0a0f1e] border-r border-[#1e2d4a] flex flex-col">
+    <aside className="w-72 h-screen sticky top-0 bg-[#0a0f1e] border-r border-[#1e2d4a] flex flex-col overflow-hidden">
       {/* Logo */}
       <div className="p-6 border-b border-[#1e2d4a]">
         <Link href="/" className="block">
