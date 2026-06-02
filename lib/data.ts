@@ -2038,6 +2038,32 @@ export const videos: Video[] = [
   },
 ];
 
+export type CourseType = "Azure Cloud" | "Azure AI";
+
+export const courseMap: Record<number, CourseType> = {
+  // Azure Cloud Engineering (30 episodes)
+  1: "Azure Cloud", 2: "Azure Cloud", 3: "Azure Cloud", 4: "Azure Cloud",
+  5: "Azure Cloud", 6: "Azure Cloud", 7: "Azure Cloud", 8: "Azure Cloud",
+  9: "Azure Cloud", 10: "Azure Cloud", 11: "Azure Cloud", 12: "Azure Cloud",
+  13: "Azure Cloud", 14: "Azure Cloud", 15: "Azure Cloud", 16: "Azure Cloud",
+  17: "Azure Cloud",
+  31: "Azure Cloud", 32: "Azure Cloud",
+  34: "Azure Cloud", 35: "Azure Cloud", 36: "Azure Cloud", 37: "Azure Cloud",
+  38: "Azure Cloud", 39: "Azure Cloud", 40: "Azure Cloud",
+  46: "Azure Cloud", 47: "Azure Cloud", 48: "Azure Cloud", 49: "Azure Cloud",
+  // Azure AI Engineering (20 episodes)
+  18: "Azure AI", 19: "Azure AI", 20: "Azure AI", 21: "Azure AI",
+  22: "Azure AI", 23: "Azure AI", 24: "Azure AI", 25: "Azure AI",
+  26: "Azure AI", 27: "Azure AI", 28: "Azure AI", 29: "Azure AI",
+  30: "Azure AI", 33: "Azure AI",
+  41: "Azure AI", 42: "Azure AI", 43: "Azure AI", 44: "Azure AI",
+  45: "Azure AI", 50: "Azure AI",
+};
+
+export function getVideoByCourse(course: CourseType): Video[] {
+  return videos.filter((v) => courseMap[v.id] === course);
+}
+
 export function getVideo(id: number): Video | undefined {
   return videos.find((v) => v.id === id);
 }

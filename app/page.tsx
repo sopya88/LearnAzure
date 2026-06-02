@@ -1,68 +1,146 @@
 import Link from "next/link";
-import { videos } from "@/lib/data";
+import { videos, getVideoByCourse } from "@/lib/data";
+
+const cloudVideos = getVideoByCourse("Azure Cloud");
+const aiVideos = getVideoByCourse("Azure AI");
+
+const COURSES = [
+  {
+    id: "Azure Cloud",
+    title: "Azure Cloud Engineering",
+    subtitle: "Infrastructure · DevOps · Security · Architecture",
+    cert: "AZ-900 → AZ-104 → AZ-204",
+    color: "#0078d4",
+    glow: "from-[#0078d4]/30 to-[#50e6ff]/10",
+    border: "border-[#0078d4]/30 hover:border-[#0078d4]/60",
+    badge: "bg-[#0078d4]/20 text-[#50e6ff]",
+    episodes: cloudVideos,
+    icon: "☁",
+    description:
+      "Master Azure infrastructure from VMs, networking, and identity to AKS, DevOps pipelines, IaC with Bicep, and enterprise Landing Zones.",
+  },
+  {
+    id: "Azure AI",
+    title: "Azure AI Engineering",
+    subtitle: "AI Foundry · OpenAI · ML · RAG · Copilot",
+    cert: "AI-900 → AI-102",
+    color: "#7c3aed",
+    glow: "from-[#7c3aed]/30 to-[#a78bfa]/10",
+    border: "border-[#7c3aed]/30 hover:border-[#7c3aed]/60",
+    badge: "bg-[#7c3aed]/20 text-[#a78bfa]",
+    episodes: aiVideos,
+    icon: "🤖",
+    description:
+      "Build production AI applications with Azure AI Foundry, OpenAI, RAG, Copilot Studio, fine-tuning, and responsible AI — all on Azure.",
+  },
+];
 
 export default function Home() {
+  const totalSlides = videos.reduce((a, v) => a + v.slides.length, 0);
+
   return (
     <div className="flex-1 bg-[#060c18] px-10 py-12">
       {/* Hero */}
-      <div className="mb-12">
+      <div className="mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0078d4]/20 border border-[#0078d4]/30 mb-5">
           <div className="w-1.5 h-1.5 rounded-full bg-[#50e6ff] animate-pulse" />
-          <span className="text-[#50e6ff] text-xs font-semibold tracking-wider uppercase">Azure + AI Series</span>
+          <span className="text-[#50e6ff] text-xs font-semibold tracking-wider uppercase">
+            Azure + AI Series
+          </span>
         </div>
         <h1 className="text-4xl font-bold text-white mb-3 leading-tight">
           Your Channel <span className="text-[#0078d4]">Content Studio</span>
         </h1>
         <p className="text-[#8fa8c8] text-lg max-w-xl">
-          Every video has presentation slides, speaker scripts, Azure demo steps, and YouTube assets — all in one place.
+          Two complete courses — slides, speaker scripts, demo steps, and YouTube assets for every episode.
         </p>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-4 mb-12 max-w-lg">
+      <div className="grid grid-cols-4 gap-3 mb-12 max-w-xl">
         {[
-          { value: videos.length, label: "Videos ready" },
-          { value: videos.reduce((a, v) => a + v.slides.length, 0), label: "Total slides" },
-          { value: "50", label: "Planned episodes" },
+          { value: "2", label: "Courses" },
+          { value: videos.length, label: "Total episodes" },
+          { value: totalSlides, label: "Total slides" },
+          { value: "50", label: "Planned" },
         ].map((stat) => (
-          <div key={stat.label} className="bg-[#0a1628] border border-[#1e2d4a] rounded-xl px-5 py-4">
+          <div key={stat.label} className="bg-[#0a1628] border border-[#1e2d4a] rounded-xl px-4 py-4">
             <div className="text-2xl font-bold text-[#0078d4]">{stat.value}</div>
             <div className="text-xs text-[#8fa8c8] mt-0.5">{stat.label}</div>
           </div>
         ))}
       </div>
 
-      {/* Video grid */}
-      <div>
-        <h2 className="text-sm font-semibold text-[#50e6ff] uppercase tracking-widest mb-5 opacity-60">
-          Azure Fundamentals Series
-        </h2>
-        <div className="grid gap-4 max-w-3xl">
-          {videos.map((video) => (
-            <Link
-              key={video.id}
-              href={`/video/${video.id}`}
-              className="group flex items-center gap-5 bg-[#0a1628] hover:bg-[#0d1f3c] border border-[#1e2d4a] hover:border-[#0078d4]/40 rounded-2xl px-6 py-5 transition-all"
-            >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0078d4] to-[#50e6ff]/50 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-                {video.episode}
-              </div>
-              <div className="flex-1">
-                <div className="text-white font-semibold group-hover:text-[#50e6ff] transition-colors">
-                  {video.title}
+      {/* Course cards */}
+      <div className="grid grid-cols-1 gap-6 max-w-3xl mb-12">
+        {COURSES.map((course) => (
+          <div
+            key={course.id}
+            className={`relative bg-gradient-to-br ${course.glow} bg-[#0a1628] border ${course.border} rounded-2xl p-7 transition-all`}
+          >
+            {/* Header */}
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <div className="flex items-center gap-3 mb-1">
+                  <span className="text-2xl">{course.icon}</span>
+                  <h2 className="text-xl font-bold text-white">{course.title}</h2>
                 </div>
-                <div className="text-[#8fa8c8] text-sm mt-0.5">{video.description}</div>
+                <p className="text-sm text-[#8fa8c8]">{course.subtitle}</p>
               </div>
-              <div className="text-right flex-shrink-0">
-                <div className="text-sm font-semibold text-[#0078d4]">{video.slides.length}</div>
-                <div className="text-xs text-[#8fa8c8]">slides</div>
+              <div className={`text-xs font-semibold px-3 py-1.5 rounded-full ${course.badge} flex-shrink-0`}>
+                {course.episodes.length} episodes
               </div>
-              <svg className="w-5 h-5 text-[#8fa8c8] group-hover:text-[#50e6ff] transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            </div>
+
+            <p className="text-[#8fa8c8] text-sm mb-5 leading-relaxed">{course.description}</p>
+
+            {/* Cert badge */}
+            <div className="flex items-center gap-2 mb-5">
+              <span className="text-[10px] text-[#8fa8c8] opacity-50 uppercase tracking-widest">Certifications</span>
+              <span className="text-xs font-semibold px-2.5 py-1 rounded-lg bg-white/5 text-white border border-white/10">
+                {course.cert}
+              </span>
+            </div>
+
+            {/* First 5 episodes preview */}
+            <div className="space-y-1.5 mb-5">
+              {course.episodes.slice(0, 5).map((video, i) => (
+                <Link
+                  key={video.id}
+                  href={`/video/${video.id}`}
+                  className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/5 transition-all group"
+                >
+                  <span
+                    className="w-5 h-5 rounded flex items-center justify-center text-[10px] font-bold flex-shrink-0"
+                    style={{ background: course.color + "33", color: course.color }}
+                  >
+                    {i + 1}
+                  </span>
+                  <span className="text-sm text-[#8fa8c8] group-hover:text-white transition-colors truncate">
+                    {video.title}
+                  </span>
+                </Link>
+              ))}
+              {course.episodes.length > 5 && (
+                <p className="text-xs text-[#8fa8c8] opacity-40 px-3 py-1">
+                  + {course.episodes.length - 5} more episodes in sidebar →
+                </p>
+              )}
+            </div>
+
+            {/* CTA */}
+            <Link
+              href={`/video/${course.episodes[0]?.id}`}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all"
+              style={{ background: course.color }}
+            >
+              Start {course.id} Course
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );
