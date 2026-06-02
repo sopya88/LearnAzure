@@ -162,45 +162,48 @@ ${video.slides.map((s) => `<div class="card"><div class="card-header"><div class
       {/* Content */}
       <div className="px-8 py-8">
         {activeTab === "slides" && (
-          <div className={`flex gap-6 items-start ${presentMode ? "" : ""}`}>
-            {/* Slides column */}
-            <div className={`transition-all duration-300 ${presentMode ? "w-full" : "flex-[2]"} space-y-6`}>
-              {video.slides.map((slide) => (
-                <SlideCard key={slide.id} slide={slide} total={video.slides.length} />
-              ))}
-
-              {video.demoSteps && (
-                <div className="bg-gradient-to-br from-[#0a1628] to-[#0d1f3c] rounded-2xl border border-[#1e3a5f] overflow-hidden">
-                  <div className="px-6 py-4 border-b border-[#1e3a5f] flex items-center gap-3">
-                    <span className="text-lg">🖥️</span>
-                    <span className="text-white font-semibold">Azure Demo Steps</span>
-                  </div>
-                  <div className="px-6 py-5">
-                    <ol className="space-y-3">
-                      {video.demoSteps.map((step, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0078d4]/20 border border-[#0078d4]/40 text-[#50e6ff] text-xs font-bold flex items-center justify-center mt-0.5">
-                            {i + 1}
-                          </span>
-                          <span className="text-[#8fa8c8] text-sm">{step}</span>
-                        </li>
-                      ))}
-                    </ol>
-                  </div>
+          <div className="space-y-6">
+            {video.slides.map((slide) => (
+              <div key={slide.id} className="flex gap-4 items-stretch">
+                {/* Slide */}
+                <div className={`transition-all duration-300 ${presentMode ? "w-full" : "flex-[2]"}`}>
+                  <SlideCard slide={slide} total={video.slides.length} />
                 </div>
-              )}
-            </div>
+                {/* Script — hidden in present mode */}
+                {!presentMode && (
+                  <div className="flex-[1] min-w-[240px] bg-[#050d1a] border border-[#1e3a5f] rounded-2xl overflow-hidden flex flex-col">
+                    <div className="px-4 py-3 border-b border-[#1e3a5f]/50 flex items-center gap-2 bg-[#0078d4]/5">
+                      <svg className="w-3.5 h-3.5 text-[#50e6ff] opacity-60 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                      </svg>
+                      <span className="text-xs text-[#50e6ff] uppercase tracking-widest opacity-60 font-semibold">Speaker Script</span>
+                    </div>
+                    <div className="px-5 py-4 flex-1 flex items-center">
+                      <p className="text-[#8fa8c8] text-sm leading-relaxed italic">&ldquo;{slide.script}&rdquo;</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
 
-            {/* Script panel — hidden in present mode */}
-            {!presentMode && (
-              <div className="flex-[1] min-w-[260px] sticky top-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <svg className="w-4 h-4 text-[#50e6ff] opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                  </svg>
-                  <span className="text-xs text-[#50e6ff] uppercase tracking-widest opacity-60 font-semibold">Speaker Script</span>
+            {video.demoSteps && (
+              <div className="bg-gradient-to-br from-[#0a1628] to-[#0d1f3c] rounded-2xl border border-[#1e3a5f] overflow-hidden">
+                <div className="px-6 py-4 border-b border-[#1e3a5f] flex items-center gap-3">
+                  <span className="text-lg">🖥️</span>
+                  <span className="text-white font-semibold">Azure Demo Steps</span>
                 </div>
-                <ScriptPanel slides={video.slides} />
+                <div className="px-6 py-5">
+                  <ol className="space-y-3">
+                    {video.demoSteps.map((step, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0078d4]/20 border border-[#0078d4]/40 text-[#50e6ff] text-xs font-bold flex items-center justify-center mt-0.5">
+                          {i + 1}
+                        </span>
+                        <span className="text-[#8fa8c8] text-sm">{step}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
               </div>
             )}
           </div>
