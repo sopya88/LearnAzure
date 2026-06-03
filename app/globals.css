@@ -24,6 +24,10 @@ body {
   background: #0078d4;
 }
 
+/* ── Hide scrollbar utility ───────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* ── Print styles ─────────────────────────────────────────── */
 @media print {
   aside,

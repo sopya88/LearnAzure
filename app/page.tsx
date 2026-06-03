@@ -40,7 +40,7 @@ export default function Home() {
   const totalSlides = videos.reduce((a, v) => a + v.slides.length, 0);
 
   return (
-    <div className="flex-1 bg-[#060c18] px-10 py-12">
+    <div className="flex-1 bg-[#060c18] px-4 md:px-10 py-8 md:py-12">
       {/* Hero */}
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0078d4]/20 border border-[#0078d4]/30 mb-5">
@@ -58,7 +58,7 @@ export default function Home() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-4 gap-3 mb-12 max-w-xl">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10 md:mb-12 max-w-xl">
         {[
           { value: "2", label: "Courses" },
           { value: videos.length, label: "Episodes" },
@@ -73,11 +73,11 @@ export default function Home() {
       </div>
 
       {/* Course cards */}
-      <div className="grid grid-cols-1 gap-6 max-w-3xl mb-12">
+      <div className="grid grid-cols-1 gap-5 md:gap-6 max-w-3xl mb-10 md:mb-12">
         {COURSES.map((course) => (
           <div
             key={course.id}
-            className={`relative bg-gradient-to-br ${course.glow} bg-[#0a1628] border ${course.border} rounded-2xl p-7 transition-all`}
+            className={`relative bg-gradient-to-br ${course.glow} bg-[#0a1628] border ${course.border} rounded-2xl p-5 md:p-7 transition-all`}
           >
             {/* Header */}
             <div className="flex items-start justify-between mb-4">
