@@ -56,12 +56,83 @@ export const videos: Video[] = [
     slides: [
       {
         id: 1,
-        title: "Cloud Computing Explained",
-        bullets: ["IaaS, PaaS & SaaS with Real Examples", "Azure Fundamentals Series — Episode 1"],
-        script: "Welcome to the Azure Fundamentals series. If you're planning to learn Azure, AWS, DevOps, AI, or cloud computing, this is the perfect starting point. In this video, we'll understand what cloud computing is and learn the differences between IaaS, PaaS, and SaaS with real-world Azure examples. Make sure to subscribe so you don't miss the rest of this series.",
+        title: "Welcome to the Series",
+        bullets: [
+          "Azure Fundamentals Series",
+          "Learn Cloud Computing from Scratch",
+          "No Prior Experience Required",
+        ],
+        script: "Hello everyone, welcome to the Azure Fundamentals Series. My name is Swapnil, and in this series we're going to learn Microsoft Azure from absolute beginner level. Whether you're a student, a software developer, a tester, a DevOps engineer, or someone looking to transition into cloud computing, this series is designed for you. We'll not only cover Azure certification concepts, but also understand how cloud technologies are actually used in real-world projects.",
       },
       {
         id: 2,
+        title: "Why Learn Azure?",
+        bullets: [
+          "Cloud is everywhere — every org is moving to the cloud",
+          "High demand skills — one of the top paid tech skills globally",
+          "Foundation for AI — cloud is the base for all AI applications",
+          "Better career opportunities — cloud engineers earn 30%+ more",
+        ],
+        script: "You might be wondering, why should I learn Azure? Today, almost every organization is moving its applications and infrastructure to the cloud. Whether you're learning Azure, AWS, DevOps, Kubernetes, Data Engineering, or even Artificial Intelligence, cloud computing is the foundation for everything. If you want to build AI applications in the future, understanding cloud fundamentals is extremely important.",
+      },
+      {
+        id: 3,
+        title: "What Will We Learn in This Series?",
+        bullets: [
+          "Cloud Fundamentals — IaaS, PaaS, SaaS, shared responsibility",
+          "Azure Core Services — VMs, Storage, Networking, Databases",
+          "Security & Identity — Microsoft Entra ID, Key Vault, Defender",
+          "DevOps & IaC — Azure DevOps, GitHub Actions, Bicep",
+          "Azure AI — OpenAI, AI Foundry, RAG, Agents",
+          "Real Projects — build and deploy on Azure",
+        ],
+        script: "In this series, we'll start with cloud fundamentals and gradually move towards Azure services, networking, storage, security, and eventually Azure AI and real-world implementations. The goal is not just to pass an exam, but to actually understand how Azure works in real projects.",
+      },
+      {
+        id: 4,
+        title: "Your Learning Roadmap",
+        bullets: [
+          "① Cloud Computing Basics",
+          "② Azure Fundamentals & Core Services",
+          "③ Azure Architecture & Networking",
+          "④ Azure Security & Identity",
+          "⑤ Azure DevOps & IaC",
+          "⑥ Azure AI & Real Projects",
+        ],
+        script: "This is the roadmap we'll follow. Today we're starting with Cloud Computing because before learning Azure, it's important to understand the problem that cloud computing solved. Each step builds on the previous one — by the end of this series you'll have the knowledge and projects to land an Azure role.",
+      },
+      {
+        id: 5,
+        title: "Today's Agenda",
+        bullets: [
+          "✅ What is Cloud Computing?",
+          "✅ Why was it introduced?",
+          "✅ Benefits of the Cloud",
+          "✅ IaaS, PaaS & SaaS explained",
+          "✅ Real Azure examples for each model",
+        ],
+        script: "By the end of this video, you'll understand what cloud computing is, why organizations use it, and the difference between IaaS, PaaS, and SaaS using practical examples. Let's get started.",
+      },
+      {
+        id: 6,
+        title: "Imagine Opening a Restaurant",
+        bullets: [
+          "Option 1: Buy land, construct building, buy furniture, hire staff → huge investment",
+          "Option 2: Rent a fully equipped restaurant space → start immediately",
+          "Cloud = Option 2 for technology",
+          "Rent compute, storage, and networking — start building right away",
+          "No upfront cost, pay only for what you use",
+        ],
+        script: "Let's understand cloud computing with a simple example. Imagine you want to open a restaurant. You have two options. The first option is to buy land, construct the building, purchase furniture, install electricity, and hire maintenance staff. This requires a huge investment. The second option is to rent a fully equipped restaurant space and start serving customers immediately. Which option would be faster and cheaper? Most people would choose the second option. Cloud computing works in a very similar way. Instead of buying servers, you rent them from Microsoft Azure and pay only for what you use.",
+      },
+      {
+        id: 7,
+        title: "Cloud Computing Explained",
+        bullets: ["IaaS, PaaS & SaaS with Real Examples", "Azure Fundamentals Series — Episode 1"],
+        script: "Now that we understand the concept through our restaurant analogy, let's dive into cloud computing properly and explore the three service models — IaaS, PaaS, and SaaS — with real Azure examples for each.",
+      },
+      {
+        id: 8,
         title: "The Problem Before Cloud",
         bullets: [
           "Buy & manage physical servers",
@@ -73,7 +144,7 @@ export const videos: Video[] = [
         script: "Before cloud computing, every company had to buy their own servers. Imagine you're launching a startup — before writing a single line of code, you'd need to spend thousands on hardware, set up a data center, hire staff to manage it, and wait weeks for delivery. And if your app went viral overnight? You couldn't scale fast enough. That was the painful reality before cloud.",
       },
       {
-        id: 3,
+        id: 9,
         title: "What is Cloud Computing?",
         bullets: [
           "Access computing resources over the internet",
@@ -84,7 +155,7 @@ export const videos: Video[] = [
         script: "Cloud computing means accessing computing resources — servers, storage, databases, networking — over the internet, on demand. Think of it like electricity. You don't build a power plant to use electricity at home. You just plug in and pay for what you consume. Cloud computing works the same way. You rent resources from providers like Microsoft Azure, and pay only for what you actually use.",
       },
       {
-        id: 4,
+        id: 10,
         title: "Cloud in Everyday Life",
         bullets: [
           "Gmail — emails stored in the cloud",
@@ -96,7 +167,7 @@ export const videos: Video[] = [
         script: "You're already using cloud computing every day. When you check Gmail, your emails aren't stored on your phone — they're on Google's cloud servers. When you stream Netflix, that video is coming from cloud infrastructure in data centers around the world. Google Drive, Microsoft 365, Spotify — all cloud-powered. The cloud is everywhere.",
       },
       {
-        id: 5,
+        id: 11,
         title: "Benefits of Cloud Computing",
         bullets: [
           "Cost savings — no hardware, pay-as-you-go",
@@ -109,7 +180,7 @@ export const videos: Video[] = [
         script: "The benefits are compelling. First, cost — instead of buying servers, you pay a monthly bill. Second, scalability — Azure can scale your app to handle millions of users in seconds. Third, global reach — Azure has datacenters in 60+ regions worldwide. And because Microsoft invests billions in security, you get enterprise-grade protection without building it yourself.",
       },
       {
-        id: 6,
+        id: 12,
         title: "Cloud Service Models",
         bullets: [
           "IaaS — Infrastructure as a Service",
@@ -120,7 +191,7 @@ export const videos: Video[] = [
         script: "Cloud services come in three main models: IaaS, PaaS, and SaaS. Each one gives you more or less control over the underlying infrastructure. Think of it as a spectrum — on one end, you manage everything. On the other, the provider manages everything. Let's break each one down.",
       },
       {
-        id: 7,
+        id: 13,
         title: "IaaS — Infrastructure as a Service",
         bullets: [
           "Rent virtual machines, storage, networking",
@@ -132,7 +203,7 @@ export const videos: Video[] = [
         script: "IaaS gives you the raw building blocks of cloud infrastructure. With Azure Virtual Machines, Microsoft manages the physical servers in their data centers — the racks, cables, power, cooling. But you control everything else: the operating system, the software you install, the applications you run. It's like renting an empty apartment — the building is maintained, but you furnish and manage the inside.",
       },
       {
-        id: 8,
+        id: 14,
         title: "PaaS — Platform as a Service",
         bullets: [
           "Cloud manages infrastructure + OS + runtime",
@@ -144,7 +215,7 @@ export const videos: Video[] = [
         script: "PaaS removes the burden of managing servers and operating systems. With Azure App Service, you just deploy your code — Azure handles everything else: provisioning servers, patching, scaling, load balancing. It's like a managed apartment — fully furnished, cleaning included. You just show up and live in it. Developers love PaaS because they can ship faster without worrying about infrastructure.",
       },
       {
-        id: 9,
+        id: 15,
         title: "SaaS — Software as a Service",
         bullets: [
           "Complete application delivered over the internet",
@@ -156,7 +227,7 @@ export const videos: Video[] = [
         script: "SaaS is the furthest end of the spectrum — a complete software product you access through a browser or app. Microsoft 365 is a perfect SaaS example. You don't install Word or Excel on a server. You subscribe, log in, and start working. Microsoft handles everything — the servers, security, updates, backups. You just use the software. That's SaaS.",
       },
       {
-        id: 10,
+        id: 16,
         title: "Shared Responsibility Model",
         bullets: [
           "On-Premises: You manage everything",
@@ -168,7 +239,7 @@ export const videos: Video[] = [
         script: "This slide is crucial. As you move from on-premises to IaaS to PaaS to SaaS, the cloud provider takes on more and more responsibility. With on-premises, your team manages the entire stack. With SaaS, you only manage your data and who has access. Understanding this model is key — it comes up in Azure certifications, interviews, and real-world architecture decisions.",
       },
       {
-        id: 11,
+        id: 17,
         title: "Microsoft Azure Overview",
         bullets: [
           "Microsoft's cloud platform — launched 2010",
@@ -180,7 +251,7 @@ export const videos: Video[] = [
         script: "Microsoft Azure is one of the top three cloud providers in the world, alongside AWS and Google Cloud. It offers over 200 services — from basic virtual machines to cutting-edge AI and machine learning tools. It runs in 60+ regions globally, meaning your application can be close to your users wherever they are. It's the platform we'll use throughout this entire series.",
       },
       {
-        id: 12,
+        id: 18,
         title: "Live Azure Demo",
         bullets: [
           "Azure Portal — portal.azure.com",
@@ -191,7 +262,7 @@ export const videos: Video[] = [
         script: "Now let's stop looking at slides and actually see Azure. I'm going to open the Azure portal and show you exactly where IaaS, PaaS, and SaaS services live. This is your first time seeing the portal — don't worry if it looks overwhelming. By the end of this series, you'll navigate it confidently.",
       },
       {
-        id: 13,
+        id: 19,
         title: "Summary & What's Next",
         bullets: [
           "✅ Cloud computing = on-demand resources over internet",
