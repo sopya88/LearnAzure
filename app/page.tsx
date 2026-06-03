@@ -61,9 +61,9 @@ export default function Home() {
       <div className="grid grid-cols-4 gap-3 mb-12 max-w-xl">
         {[
           { value: "2", label: "Courses" },
-          { value: videos.length, label: "Total episodes" },
-          { value: totalSlides, label: "Total slides" },
-          { value: "50", label: "Planned" },
+          { value: videos.length, label: "Episodes" },
+          { value: totalSlides, label: "Slides" },
+          { value: "58", label: "Completed" },
         ].map((stat) => (
           <div key={stat.label} className="bg-[#0a1628] border border-[#1e2d4a] rounded-xl px-4 py-4">
             <div className="text-2xl font-bold text-[#0078d4]">{stat.value}</div>
