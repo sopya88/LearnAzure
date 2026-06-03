@@ -12,7 +12,7 @@ const COURSES: {
   { id: "Azure AI",    label: "Azure AI",    accent: "#7c3aed", light: "#a78bfa", cert: "AI-900 · AI-102" },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ onClose }: { onClose?: () => void }) {
   const pathname = usePathname();
   const [activeCourse, setActiveCourse] = useState<CourseType>("Azure Cloud");
   const { completed, mounted } = useProgress();
@@ -31,9 +31,21 @@ export default function Sidebar() {
   const pct         = courseVids.length > 0 ? Math.round((doneCount / courseVids.length) * 100) : 0;
 
   return (
-    <aside className="w-72 h-screen sticky top-0 bg-[#0a0f1e] border-r border-[#1e2d4a] flex flex-col overflow-hidden" data-no-print>
+    <aside className="relative w-72 h-screen bg-[#0a0f1e] border-r border-[#1e2d4a] flex flex-col overflow-hidden" data-no-print>
       {/* Logo */}
       <div className="p-5 border-b border-[#1e2d4a] flex-shrink-0">
+        {/* Mobile close button */}
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="md:hidden absolute top-4 right-4 p-1.5 rounded-lg bg-[#1e2d4a] text-[#8fa8c8] hover:text-white transition-all"
+            aria-label="Close menu"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        )}
         <Link href="/" className="block">
           <div className="flex items-center gap-3">
             <img

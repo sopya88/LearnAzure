@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
+import SidebarWrapper from "@/components/SidebarWrapper";
 
 export const metadata: Metadata = {
-  title: "Azure Channel Studio",
-  description: "PPT slides and scripts for Azure + AI YouTube series",
+  title: "Swapnil's Studio",
+  description: "Azure + AI course slides, scripts and YouTube assets",
 };
 
 export default function RootLayout({
@@ -15,12 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased bg-[#060c18] h-screen overflow-hidden">
-        <div className="flex h-full">
-          <Sidebar />
-          <main className="flex-1 flex flex-col h-full overflow-y-auto">
-            {children}
-          </main>
-        </div>
+        <SidebarWrapper>{children}</SidebarWrapper>
       </body>
     </html>
   );
