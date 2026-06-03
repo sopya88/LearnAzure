@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { videos, getVideoByCourse } from "@/lib/data";
+import CourseProgressBar from "@/components/CourseProgressBar";
 
 const cloudVideos = getVideoByCourse("Azure Cloud");
 const aiVideos = getVideoByCourse("Azure AI");
@@ -128,17 +129,25 @@ export default function Home() {
               )}
             </div>
 
+            {/* Progress bar */}
+            <CourseProgressBar
+              course={course.id as "Azure Cloud" | "Azure AI"}
+              episodeIds={course.episodes.map((e) => e.id)}
+            />
+
             {/* CTA */}
-            <Link
-              href={`/video/${course.episodes[0]?.id}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all"
-              style={{ background: course.color }}
-            >
-              Start {course.id} Course
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
+            <div className="mt-4">
+              <Link
+                href={`/video/${course.episodes[0]?.id}`}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all"
+                style={{ background: course.color }}
+              >
+                Start {course.id} Course
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
           </div>
         ))}
       </div>

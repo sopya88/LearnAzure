@@ -1,4 +1,4 @@
-import { getVideo, videos } from "@/lib/data";
+import { getVideo, videos, courseMap } from "@/lib/data";
 import { notFound } from "next/navigation";
 import VideoPage from "@/components/VideoPage";
 
@@ -10,5 +10,6 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   const { id } = await params;
   const video = getVideo(Number(id));
   if (!video) notFound();
-  return <VideoPage video={video} />;
+  const course = courseMap[video.id] ?? "Azure Cloud";
+  return <VideoPage video={video} course={course} />;
 }
