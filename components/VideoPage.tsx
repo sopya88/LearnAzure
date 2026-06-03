@@ -12,6 +12,8 @@ const THEME = {
 function SlideCard({ slide, total, accent, light }: {
   slide: Slide; total: number; accent: string; light: string;
 }) {
+  const [scriptOpen, setScriptOpen] = useState(false);
+
   return (
     <div className="relative bg-gradient-to-br from-[#0a1628] to-[#0d1f3c] rounded-2xl border border-[#1e3a5f] overflow-hidden print-slide">
       {/* Slide top bar */}
@@ -63,6 +65,32 @@ function SlideCard({ slide, total, accent, light }: {
         </ul>
       </div>
 
+      {/* Speaker script — inline collapsible on mobile, always visible toggle on desktop via parent */}
+      <div className="md:hidden border-t border-[#1e3a5f]" data-no-print>
+        <button
+          onClick={() => setScriptOpen((o) => !o)}
+          className="w-full flex items-center justify-between px-4 py-3 text-xs font-semibold uppercase tracking-widest transition-all"
+          style={{ background: accent + "12", color: light }}
+        >
+          <div className="flex items-center gap-2">
+            <svg className="w-3.5 h-3.5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+            </svg>
+            Speaker Script
+          </div>
+          <svg
+            className={`w-4 h-4 transition-transform duration-200 ${scriptOpen ? "rotate-180" : ""}`}
+            fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        {scriptOpen && (
+          <div className="px-4 py-4" style={{ background: "#050d1a" }}>
+            <p className="text-[#8fa8c8] text-sm leading-relaxed italic">&ldquo;{slide.script}&rdquo;</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
