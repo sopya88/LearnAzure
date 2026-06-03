@@ -42,8 +42,8 @@ export default function Sidebar() {
               className="w-10 h-10 rounded-full object-cover ring-2 ring-[#0078d4]/60 flex-shrink-0"
             />
             <div className="min-w-0 flex-1">
-              <div className="text-white font-semibold text-sm leading-tight">Azure + AI</div>
-              <div className="text-[#50e6ff] text-xs opacity-60 mb-1">Content Studio</div>
+              <div className="text-white font-semibold text-sm leading-tight">Swapnil's Studio</div>
+              <div className="text-[#50e6ff] text-xs opacity-60 mb-1">Azure + AI</div>
               <div className="flex items-center gap-1.5" onClick={(e) => e.preventDefault()}>
                 {/* LinkedIn */}
                 <a
