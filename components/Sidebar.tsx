@@ -36,9 +36,11 @@ export default function Sidebar() {
       <div className="p-5 border-b border-[#1e2d4a] flex-shrink-0">
         <Link href="/" className="block">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0078d4] to-[#50e6ff] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-              Az
-            </div>
+            <img
+              src="/avatar.jpg"
+              alt="Swapnil"
+              className="w-10 h-10 rounded-full object-cover ring-2 ring-[#0078d4]/60 flex-shrink-0"
+            />
             <div>
               <div className="text-white font-semibold text-sm leading-tight">Azure + AI</div>
               <div className="text-[#50e6ff] text-xs opacity-60">Content Studio</div>
