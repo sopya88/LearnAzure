@@ -36,22 +36,44 @@ export default function Sidebar() {
       <div className="p-5 border-b border-[#1e2d4a] flex-shrink-0">
         <Link href="/" className="block">
           <div className="flex items-center gap-3">
-            <a
-              href="https://www.linkedin.com/in/swapnil-dongare-7b630a36/"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              title="Connect on LinkedIn"
-            >
-              <img
-                src="/avatar.jpg"
-                alt="Swapnil Dongare"
-                className="w-10 h-10 rounded-full object-cover ring-2 ring-[#0078d4]/60 hover:ring-[#50e6ff] transition-all flex-shrink-0"
-              />
-            </a>
-            <div>
+            <img
+              src="/avatar.jpg"
+              alt="Swapnil Dongare"
+              className="w-10 h-10 rounded-full object-cover ring-2 ring-[#0078d4]/60 flex-shrink-0"
+            />
+            <div className="min-w-0 flex-1">
               <div className="text-white font-semibold text-sm leading-tight">Azure + AI</div>
-              <div className="text-[#50e6ff] text-xs opacity-60">Content Studio</div>
+              <div className="text-[#50e6ff] text-xs opacity-60 mb-1">Content Studio</div>
+              <div className="flex items-center gap-1.5" onClick={(e) => e.preventDefault()}>
+                {/* LinkedIn */}
+                <a
+                  href="https://www.linkedin.com/in/swapnil-dongare-7b630a36/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="LinkedIn"
+                  className="flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-[#0a66c2]/20 hover:bg-[#0a66c2]/40 transition-all"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <svg className="w-3 h-3 text-[#0a66c2]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  <span className="text-[10px] text-[#0a66c2] font-semibold">in</span>
+                </a>
+                {/* Website */}
+                <a
+                  href="https://www.itcareermentorship.in/about"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Website"
+                  className="flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-[#0078d4]/20 hover:bg-[#0078d4]/40 transition-all"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <svg className="w-3 h-3 text-[#50e6ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
+                  <span className="text-[10px] text-[#50e6ff] font-semibold">web</span>
+                </a>
+              </div>
             </div>
           </div>
         </Link>
