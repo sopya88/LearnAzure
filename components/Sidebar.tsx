@@ -36,11 +36,19 @@ export default function Sidebar() {
       <div className="p-5 border-b border-[#1e2d4a] flex-shrink-0">
         <Link href="/" className="block">
           <div className="flex items-center gap-3">
-            <img
-              src="/avatar.jpg"
-              alt="Swapnil"
-              className="w-10 h-10 rounded-full object-cover ring-2 ring-[#0078d4]/60 flex-shrink-0"
-            />
+            <a
+              href="https://www.linkedin.com/in/swapnil-dongare-7b630a36/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              title="Connect on LinkedIn"
+            >
+              <img
+                src="/avatar.jpg"
+                alt="Swapnil Dongare"
+                className="w-10 h-10 rounded-full object-cover ring-2 ring-[#0078d4]/60 hover:ring-[#50e6ff] transition-all flex-shrink-0"
+              />
+            </a>
             <div>
               <div className="text-white font-semibold text-sm leading-tight">Azure + AI</div>
               <div className="text-[#50e6ff] text-xs opacity-60">Content Studio</div>
