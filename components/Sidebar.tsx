@@ -8,8 +8,9 @@ import { useProgress } from "@/lib/useProgress";
 const COURSES: {
   id: CourseType; label: string; accent: string; light: string; cert: string;
 }[] = [
-  { id: "Azure Cloud", label: "Azure Cloud", accent: "#0078d4", light: "#50e6ff", cert: "AZ-900 · AZ-104 · AZ-204" },
-  { id: "Azure AI",    label: "Azure AI",    accent: "#7c3aed", light: "#a78bfa", cert: "AI-900 · AI-102" },
+  { id: "Azure Cloud",       label: "☁ Azure Cloud",  accent: "#0078d4", light: "#50e6ff", cert: "AZ-900 · AZ-104 · AZ-204" },
+  { id: "Azure AI",          label: "🤖 Azure AI",     accent: "#7c3aed", light: "#a78bfa", cert: "AI-900 · AI-102" },
+  { id: "Career Mentorship", label: "🚀 Career",       accent: "#059669", light: "#34d399", cert: "Fresher → Mid · PL-300" },
 ];
 
 export default function Sidebar({ onClose }: { onClose?: () => void }) {
@@ -96,12 +97,12 @@ export default function Sidebar({ onClose }: { onClose?: () => void }) {
         <p className="text-[#8fa8c8] text-[10px] font-semibold uppercase tracking-widest opacity-50 mb-2 px-1">
           Course
         </p>
-        <div className="flex gap-2">
+        <div className="grid grid-cols-3 gap-1.5">
           {COURSES.map((c) => (
             <button
               key={c.id}
               onClick={() => setActiveCourse(c.id)}
-              className="flex-1 py-2.5 px-2 rounded-xl text-xs font-semibold transition-all border"
+              className="py-2 px-1 rounded-xl text-[10px] font-semibold transition-all border leading-tight"
               style={
                 activeCourse === c.id
                   ? { background: c.accent, color: "#fff", borderColor: c.accent }

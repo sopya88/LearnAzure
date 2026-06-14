@@ -4,6 +4,7 @@ import CourseProgressBar from "@/components/CourseProgressBar";
 
 const cloudVideos = getVideoByCourse("Azure Cloud");
 const aiVideos = getVideoByCourse("Azure AI");
+const careerVideos = getVideoByCourse("Career Mentorship");
 
 const COURSES = [
   {
@@ -34,6 +35,20 @@ const COURSES = [
     description:
       "Build production AI applications with Azure AI Foundry, OpenAI, RAG, Copilot Studio, fine-tuning, and responsible AI — all on Azure.",
   },
+  {
+    id: "Career Mentorship",
+    title: "IT Career Mentorship",
+    subtitle: "Programming · Web · Databases · AI · Interview · Freelancing",
+    cert: "Fresher → Mid · PL-300 · AZ-900",
+    color: "#059669",
+    glow: "from-[#059669]/30 to-[#34d399]/10",
+    border: "border-[#059669]/30 hover:border-[#059669]/60",
+    badge: "bg-[#059669]/20 text-[#34d399]",
+    episodes: careerVideos,
+    icon: "🚀",
+    description:
+      "Complete IT career guide for freshers and career-switchers — programming languages, web technologies, cloud, AI tools, interview prep, resume, LinkedIn, and freelancing.",
+  },
 ];
 
 export default function Home() {
@@ -53,17 +68,17 @@ export default function Home() {
           Your Channel <span className="text-[#0078d4]">Content Studio</span>
         </h1>
         <p className="text-[#8fa8c8] text-lg max-w-xl">
-          Two complete courses — slides, speaker scripts, demo steps, and YouTube assets for every episode.
+          Three complete courses — slides, speaker scripts, demo steps, and YouTube assets for every episode.
         </p>
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10 md:mb-12 max-w-xl">
         {[
-          { value: "2", label: "Courses" },
+          { value: "3", label: "Courses" },
           { value: videos.length, label: "Episodes" },
           { value: totalSlides, label: "Slides" },
-          { value: "58", label: "Completed" },
+          { value: "74", label: "Completed" },
         ].map((stat) => (
           <div key={stat.label} className="bg-[#0a1628] border border-[#1e2d4a] rounded-xl px-4 py-4">
             <div className="text-2xl font-bold text-[#0078d4]">{stat.value}</div>
@@ -131,7 +146,7 @@ export default function Home() {
 
             {/* Progress bar */}
             <CourseProgressBar
-              course={course.id as "Azure Cloud" | "Azure AI"}
+              course={course.id as "Azure Cloud" | "Azure AI" | "Career Mentorship"}
               episodeIds={course.episodes.map((e) => e.id)}
             />
 

@@ -4,8 +4,9 @@ import { Video, Slide, CourseType } from "@/lib/data";
 import { useProgress } from "@/lib/useProgress";
 
 const THEME = {
-  "Azure Cloud": { accent: "#0078d4", light: "#50e6ff", label: "Azure Cloud" },
-  "Azure AI":    { accent: "#7c3aed", light: "#a78bfa", label: "Azure AI"    },
+  "Azure Cloud":       { accent: "#0078d4", light: "#50e6ff", label: "Azure Cloud"       },
+  "Azure AI":          { accent: "#7c3aed", light: "#a78bfa", label: "Azure AI"          },
+  "Career Mentorship": { accent: "#059669", light: "#34d399", label: "Career Mentorship" },
 };
 
 /* ── Slide card ─────────────────────────────────────────────── */
